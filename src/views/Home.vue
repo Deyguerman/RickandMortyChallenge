@@ -14,7 +14,7 @@
 		        	v-for="(link, i) in links"
 		        	:key="i"
 		        	:to="link.to"
-		        	@click="onClick($event, link)"
+		        	
 		      	>
 		      		<v-list-tile-avatar>
 		                <v-icon>{{link.avatar}}</v-icon>
@@ -41,6 +41,7 @@
 	          height="48"
 	          width="48"
 	          max-width="48"
+	          @click="routerHome"
 	        />
 
 	      	<v-toolbar-title>
@@ -50,6 +51,7 @@
 		          height="150"
 		          width="150"
 		          max-width="150"
+		          @click="routerHome"
 		        />
 	    	</v-toolbar-title>
 	      	
@@ -66,16 +68,14 @@
 	        </v-btn>
     	</v-toolbar>
 
-	    <v-content>
-	    	<router-view />
-	    </v-content>
-    
-    <v-footer 
-    	dark 
-    	app
-	>
-      <span class="white--text">&copy; 2017</span>
-    </v-footer>
+		<router-view app></router-view>
+	   
+	    <v-footer 
+	    	dark 
+	    	app
+		>
+	      <span class="white--text">&copy; Deyguerman Guzmán 2019</span>
+	    </v-footer>
   </v-app>
 </template>
 
@@ -90,6 +90,13 @@ export default {
     		{text: 'About', to: '/', avatar: 'error'}
     	]
   	}),
+  	methods: {
+  		routerHome () {
+  			this.$router.push({
+  				name: 'home'
+  			})
+  		}
+  	},
   	components: {
   	}
 }
