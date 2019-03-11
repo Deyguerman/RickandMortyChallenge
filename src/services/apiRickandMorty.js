@@ -1,21 +1,43 @@
 import axios from "axios";
 
-function getCharacter(obj) {
-	let page = ''
-	if (obj.page) {
-		page = '/?' + obj.page
-	}
+function getRoute() {
 	return new Promise((resolve, reject) => {
 		try {
 			axios
-				.get("https://rickandmortyapi.com/api/character"+ page)
+				.get("https://rickandmortyapi.com/api/")
 				.then(result => {
-					resolve(result.data.results);
+					resolve(result.data);
 				})
 				.catch(error => {
 					
 					reject(error);
 				});
+		} catch (err) {
+			console.log("err in getCharacter: ", err);
+		}
+	});
+}
+
+function getCharacter(obj) {
+	return new Promise((resolve, reject) => {
+		try {
+			getRoute().then(routes => {
+				// console.log("routers: ", routes)
+				let page = routes.characters
+				if (obj.page) {
+					page = obj.page
+				} else if (obj.pageNumber) {
+					page = page + '/?page=' + obj.pageNumber
+				}
+				axios
+					.get(page)
+					.then(result => {
+						resolve(result.data);
+					})
+					.catch(error => {
+						reject(error);
+					})
+			})
 		} catch (err) {
 			console.log("err in getCharacter: ", err);
 		}

@@ -17,11 +17,11 @@
 		        	
 		      	>
 		      		<v-list-tile-avatar>
-		                <v-icon>{{link.avatar}}</v-icon>
-	              	</v-list-tile-avatar>
+								<v-icon>{{link.avatar}}</v-icon>
+							</v-list-tile-avatar>
 		        	<v-list-tile-content>
-	                	<v-list-tile-title>{{link.text}}</v-list-tile-title>
-	              	</v-list-tile-content>
+								<v-list-tile-title>{{link.text}}</v-list-tile-title>
+							</v-list-tile-content>
 		      	</v-list-tile>
 		    </v-list>
 	    </v-navigation-drawer>
@@ -62,7 +62,6 @@
 	          	:to="link.to"
 	          	color="primary"
 	          	class="ml-0 hidden-sm-and-down"
-	          	@click="onClick($event, item)"
 	        >
 	          	{{ link.text }}
 	        </v-btn>
