@@ -85,8 +85,8 @@ export default {
     	drawer: false,
     	links: [
     		{text: 'Characters', to: {name: 'characters'}, avatar: 'group'},
-    		{text: 'Episode', to: '/', avatar: 'photo_library'},
-    		{text: 'About', to: '/', avatar: 'error'}
+    		{text: 'Episode', to: {name: 'episodes'}, avatar: 'photo_library'},
+    		// {text: 'About', to: '/', avatar: 'error'}
     	]
   	}),
   	methods: {

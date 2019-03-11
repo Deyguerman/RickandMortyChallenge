@@ -57,7 +57,7 @@
 import * as api from '@/services/apiRickandMorty'
 import moment from "moment";
 export default {
-	name: 'Characters',
+	name: 'showCharacters',
 	data: () => ({
         fav: true,
         menu: false,

@@ -44,6 +44,45 @@ function getCharacter(obj) {
 	});
 }
 
+function getEpisode() {
+	return new Promise((resolve, reject) => {
+		try {
+			getRoute().then(routes => {
+				// console.log("routers: ", routes)
+				axios
+					.get(routes.episodes)
+					.then(result => {
+						resolve(result.data);
+					})
+					.catch(error => {
+						reject(error);
+					})
+			})
+		} catch (err) {
+			console.log("err in getCharacter: ", err);
+		}
+	});
+}
+
+function getCharacterByEpisode(obj) {
+	return new Promise((resolve, reject) => {
+		try {
+			axios
+				.get(obj.route)
+				.then(result => {
+					resolve(result.data);
+				})
+				.catch(error => {
+					reject(error);
+				})
+		} catch (err) {
+			console.log("err in getCharacter: ", err);
+		}
+	});
+}
+
 export {
-	getCharacter	
+	getCharacter,
+	getEpisode,
+	getCharacterByEpisode
 }

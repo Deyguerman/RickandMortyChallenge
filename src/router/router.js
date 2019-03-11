@@ -29,12 +29,12 @@ export default new Router({
           component: () => import('@/components/characters')
         },
         {
-          path: 'about',
-          name: 'about',
+          path: 'episodes',
+          name: 'episodes',
           // route level code-splitting
           // this generates a separate chunk (about.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
-          component: () => import('@/views/About.vue')
+          component: () => import('@/components/episodes')
         }
       ]
     }

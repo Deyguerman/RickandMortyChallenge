@@ -2,7 +2,7 @@
 	<v-container grid-list-md text-xs-center>
 		<v-layout justify-center class="py-5 mt-4" >
 		    <v-flex>
-		      <v-card class="elevation-0" v-if="!loading">
+		      <v-card class="elevation-0" v-if="!loading" color="grey lighten-3">
 			        <v-container
 			          fluid
 			          grid-list-md
@@ -37,12 +37,13 @@
 												<v-container
 													fill-height
 													fluid
-													pa-2
+													pa-1
 												>
 													<v-layout 
 														pa-0 
 														fluid 
-														row 
+														row
+														dark
 													>
 														<v-flex
 															xs2
@@ -96,8 +97,8 @@ export default {
 	name: 'Characters',
 	data: () => ({
 		status: {
-			alive: {icon: 'heartbeat', color: 'red'},
-			dead: {icon: 'skull', color: 'black'},
+			alive: {icon: 'heartbeat', color: '#01579B'},
+			dead: {icon: 'skull', color: 'red'},
 			unknown: {icon: 'question-circle', color: 'orange'}
 		},
 		characters: [],
