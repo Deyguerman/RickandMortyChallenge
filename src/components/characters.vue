@@ -1,23 +1,28 @@
 <template>
 	<v-container grid-list-md text-xs-center>
-		<v-layout justify-center class="py-5 mt-4" >
-		    <v-flex>
-		      <v-card class="elevation-0" v-if="!loading" color="grey lighten-3">
-			        <v-container
-			          fluid
-			          grid-list-md
-			        >
-			          <v-layout row wrap>
-			            <v-flex
-			              v-for="character in characters"
-			              :key="character.title"
-			              v-bind="{ [`xs12 sm4 md4 lg3 xl3`]: true }"
-			            >
-			              	<v-card>
-				                <v-img
-				                	contain
-				                	:src="character.image"
-				                >
+		<v-layout 
+			justify-center 
+			class="py-5 mt-4" 
+		>
+				<v-flex>
+					<v-card class="elevation-0" v-if="!loading" color="grey lighten-3">
+							<v-container
+								fluid
+								grid-list-md
+							>
+								<v-layout 
+									row wrap
+								>
+									<v-flex
+										v-for="character in characters"
+										:key="character.title"
+										v-bind="{ [`xs12 sm4 md4 lg3 xl3`]: true }"
+									>
+											<v-card>
+												<v-img
+													contain
+													:src="character.image"
+												>
 													<v-container
 														fill-height
 														pa-0
@@ -33,7 +38,7 @@
 															</v-flex>
 														</v-layout>
 													</v-container>
-				                </v-img>
+												</v-img>
 												<v-container
 													fill-height
 													fluid
@@ -72,11 +77,11 @@
 														</v-flex>
 													</v-layout>
 												</v-container>
-			              </v-card>
-			            </v-flex>
-			          </v-layout>
-			        </v-container>
-		      	</v-card>
+										</v-card>
+									</v-flex>
+								</v-layout>
+							</v-container>
+						</v-card>
 						<v-progress-linear v-else :indeterminate="true"></v-progress-linear>
 						<v-pagination
 							v-model="page"
@@ -86,8 +91,8 @@
 							@previous="changePage"
 							:total-visible="10"
 						></v-pagination>
-		    </v-flex>
-	  	</v-layout>
+				</v-flex>
+		</v-layout>
 	</v-container>
 </template>
 <script>
@@ -145,7 +150,7 @@ export default {
 					this.loading = false
 				})
 				.catch(err => {
-					console.log("error: ", result)
+					console.log("error: ", err)
 				})
 		}
 	},

@@ -13,7 +13,7 @@ function getRoute() {
 					reject(error);
 				});
 		} catch (err) {
-			console.log("err in getCharacter: ", err);
+			console.log("err in getRoutes: ", err);
 		}
 	});
 }
@@ -22,7 +22,6 @@ function getCharacter(obj) {
 	return new Promise((resolve, reject) => {
 		try {
 			getRoute().then(routes => {
-				// console.log("routers: ", routes)
 				let page = routes.characters
 				if (obj.page) {
 					page = obj.page
@@ -38,19 +37,25 @@ function getCharacter(obj) {
 						reject(error);
 					})
 			})
+			.catch(() => {
+				getCharacter(obj)
+			})
 		} catch (err) {
 			console.log("err in getCharacter: ", err);
 		}
 	});
 }
 
-function getEpisode() {
+function getEpisode(obj) {
 	return new Promise((resolve, reject) => {
 		try {
 			getRoute().then(routes => {
-				// console.log("routers: ", routes)
+				let page = routes.episodes
+				if (obj.page) {
+					page = obj.page
+				}
 				axios
-					.get(routes.episodes)
+					.get(page)
 					.then(result => {
 						resolve(result.data);
 					})
@@ -59,7 +64,7 @@ function getEpisode() {
 					})
 			})
 		} catch (err) {
-			console.log("err in getCharacter: ", err);
+			console.log("err in getEpisode: ", err);
 		}
 	});
 }
@@ -76,7 +81,7 @@ function getCharacterByEpisode(obj) {
 					reject(error);
 				})
 		} catch (err) {
-			console.log("err in getCharacter: ", err);
+			console.log("err in getCharacterByEpisode: ", err);
 		}
 	});
 }
