@@ -76,11 +76,13 @@ export default {
                         let obj = {}
                         await mapEpisode.characters.forEach(character => {
                             // console.log("Character: ", character)
-                            obj = {route: character}
-                            api.getCharacterByEpisode(obj)
-                                .then(result => {
-                                    newCharacters.push(result)
-                                })
+                            if (typeof character !== 'object') {
+                                obj = {route: character}
+                                api.getCharacterByEpisode(obj)
+                                    .then(result => {
+                                        newCharacters.push(result)
+                                    })
+                            } else newCharacters.push(character)
                             
                         })
                     }
