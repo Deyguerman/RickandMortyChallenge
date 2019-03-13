@@ -55,6 +55,9 @@
 import moment from "moment";
 export default {
 	name: 'showCharacters',
+    data: () => ({
+        menu: null
+    }),
 	methods: {
         getDate: date => moment(date).format('L')
 	},

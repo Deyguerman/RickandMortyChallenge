@@ -1,6 +1,11 @@
 <template>
     <v-card>
-        <v-card-text class="display-1">{{`Characters (${episode.name})`}}</v-card-text>
+        <v-card-text class="display-1">
+            <b>
+                <span class="primary--text">{{`${episode.name}`}}</span>
+                (Characters)
+            </b>
+        </v-card-text>
         <v-container grid-list-sm fluid aling-center>
             <v-layout row wrap>
                 <v-flex
