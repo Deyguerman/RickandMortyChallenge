@@ -11,7 +11,7 @@
                 <v-flex
                     v-for="(character, i) in episode.characters"
                     :key="i"
-                    xs2
+                    v-bind="{ [`xs6 sm3 md2`]: true }"
                     d-flex
                 >
                     <v-card flat tile class="d-flex">

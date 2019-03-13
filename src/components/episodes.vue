@@ -11,7 +11,7 @@
                             <v-flex>
                                 <v-card min-height="60vh">
                                     <v-card-text>
-                                        <v-flex xs6>
+                                        <v-flex v-bind="{ [`xs6 sm6 md8 lg8`]: true }">
                                             <v-autocomplete
                                                 clearable
                                                 v-model="episode"
